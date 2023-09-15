@@ -12,11 +12,12 @@
         <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
         @livewireStyles
     </head>
 
     <body class="bg-slate-100">
-       <div class="w-full flex items-center p-1 drop-shadow-md bg-slate-200">
+       {{-- <div class="w-full flex items-center p-1 drop-shadow-md bg-slate-200">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center">
                     <div class="mr-2">
@@ -32,7 +33,18 @@
                 </div>
                 <a class="py-1 px-5 mr-5 ml-auto border-b-2 border-transparent hover:border-blue-500" href="/login">Logout</a>
             </div>
-        </div>
+        </div> --}}
+
+        <!-- Main navigation container -->
+        
+        <nav class="bg-slate-600 h-16 w-full fixed flex items-center justify-between">
+            <label class="text-white pl-12 md:pl-24 text-lg">Social Web</label>
+            <ul class="float-right mr-10 flex space-x-4 text-white rounded">
+                <li><a href="#">Post</a></li>
+                <li><a href="#">My Post</a></li>
+                <li><a href="#">Create Post</a></li>
+            </ul>
+        </nav>
 
         {{ $slot }}
 

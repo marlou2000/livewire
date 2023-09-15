@@ -10,5 +10,5 @@ Route::get('/login', Login::class);
 Route::get('/register', Register::class);
 
 Route::middleware(['auth.livewire'])->group(function () {
-    Route::get('/post', Post::class);
+    Route::get('/post', PostComponent::class);
 });
