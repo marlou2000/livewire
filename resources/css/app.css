@@ -5,3 +5,7 @@
 ul li a{
     @apply rounded py-[7px] px-[13px] text-[17px] hover:bg-slate-300 transition-all duration-300
 }
+
+.logout a{
+    @apply rounded py-[7px] px-[13px] text-[17px] hover:bg-slate-300 transition-all duration-300
+}

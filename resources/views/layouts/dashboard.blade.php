@@ -13,40 +13,49 @@
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         @livewireStyles
     </head>
 
     <body class="bg-slate-100">
-       {{-- <div class="w-full flex items-center p-1 drop-shadow-md bg-slate-200">
-            <div class="flex items-center justify-between w-full">
-                <div class="flex items-center">
-                    <div class="mr-2">
-                        <img class="h-16 w-35" src="{{ asset('img/logo.png') }}" alt="Logo">
-                    </div>
-                    <div>
-                        <ul class="list-none inline-flex"> <!-- Use inline-flex to display the list horizontally -->
-                            <li class="mr-2"><a class="py-2 px-7 hover:border-b-2 border-blue-500" href="#">Post</a></li>
-                            <li class="mr-2"><a class="py-2 px-5 hover:border-b-2 border-blue-500" href="#">My Post</a></li>
-                            <li><a class="py-2 px-3 hover:border-b-2 border-blue-500" href="#">Create Post</a></li>
-                        </ul>
-                    </div>
+        <header class="bg-white">
+            <nav class="flex justify-between items-center w-[92%] p-[20px] mx-auto">
+                <div>
+                    <label class="text-black-500 text-lg"><a href="/post"><b>Social Web</b></a></label>
                 </div>
-                <a class="py-1 px-5 mr-5 ml-auto border-b-2 border-transparent hover:border-blue-500" href="/login">Logout</a>
-            </div>
-        </div> --}}
+                <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-[15px]">
+                    <ul class="flex pl-[15px] md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Post</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">My Post</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Create Post</a>
+                        </li>
 
-        <!-- Main navigation container -->
-        
-        <nav class="bg-slate-600 h-16 w-full fixed flex items-center justify-between">
-            <label class="text-white pl-12 md:pl-24 text-lg">Social Web</label>
-            <ul class="float-right mr-10 flex space-x-4 text-white rounded">
-                <li><a href="#">Post</a></li>
-                <li><a href="#">My Post</a></li>
-                <li><a href="#">Create Post</a></li>
-            </ul>
-        </nav>
+                        <div class="md:ml-[400px] mt-[30px] md:mt-0 logout">
+                            <a class="hover:text-gray-500" href="/login">Logout</a>
+                        </div>
+                    </ul>
+                    
+                </div>
+
+                <div class="md:absolute flex items-center gap-6">
+                    <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+                </div>
+        </header>
 
         {{ $slot }}
+
+        <script>
+            const navLinks = document.querySelector('.nav-links')
+            function onToggleMenu(e){
+                e.name = e.name === 'menu' ? 'close' : 'menu'
+                navLinks.classList.toggle('top-[9%]')
+            }
+        </script>
 
         @livewireScripts
     </body>

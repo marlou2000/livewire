@@ -11,7 +11,7 @@ class Register extends Component
     public $username;
     public $password;
     public $password_confirmation;
-    public $role;
+    public $role='Admin';
 
     protected $rules = [
         'username' => 'required|string|min:6',
@@ -58,7 +58,7 @@ class Register extends Component
             return redirect('/login');
 
         } catch (\Exception $e) {
-            session()->flash('error', 'An error occurred');
+            session()->flash('error', $e);
         }
     }
 
